@@ -4,7 +4,7 @@
 
 ## Purpose:
 
-A website that
+A website that allows users to retrieve weather data for cities in the United States.
 
 ## Built With:
 
