@@ -1,5 +1,13 @@
-/*API key: 6f8f0b3c82edaa7e1356d7dd6031e484//
+var list = [];
+var weatherView = document.querySelector("#weather-view");
+var weatherDetails = document.querySelector("#weather-details");
+var ulListEl = document.querySelector("#ul-list");
+var forecastEl = document.querySelector("#forecast");
+var fiveDayEl = document.querySelector("#five-day");
 
+var currentDay = moment().format("(L)");
+
+/*
 var apiKey = "6f8f0b3c82edaa7e1356d7dd6031e484";
 var chosenCity = "hartford";
 // var cityUserInputEl = document.getElementById("city-name");
