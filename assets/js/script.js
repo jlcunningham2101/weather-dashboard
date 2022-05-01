@@ -184,7 +184,7 @@ var listcities = function (cityIn) {
 
 document.getElementById("ul-list").addEventListener("click", function (event) {
   searchCurrent(event.target.textContent);
-  searchForecast(event.target.textContent);
+  search5Day(event.target.textContent);
 });
 
 document
@@ -201,7 +201,7 @@ document
     if (cityIn) {
       searchCurrent(cityIn);
 
-      searchForecast(cityIn);
+      search5Day(cityIn);
     } else {
       alert("Please search for a city name");
     }
