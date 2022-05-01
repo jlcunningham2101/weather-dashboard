@@ -41,7 +41,7 @@ function searchCurrent(cityName) {
 
             ShowLocal();
           }
-// current day and location name
+          // current day and location name
           var localDate = document.createElement("div");
           var picture = document.createElement("pic");
           var pictureLink =
@@ -52,12 +52,12 @@ function searchCurrent(cityName) {
           weatherView.innerHTML = "";
           weatherView.classList.add("currentStyle");
           weatherView.appendChild(dateCity);
-          weather-details.innerHTML = "";
+          weatherDetails.innerHTML = "";
           listdata.innerHTML = "";
 
           searchUV(data.coord.lat, data.coord.lon);
 
-          // when searching, displays weather information.
+//display temperature, humidity, wind speed, 
           temperature.textContent =
             "Temperature:" + " " + data.main.temperature + " " + "ºF";
           humidity.textContent =
@@ -65,10 +65,10 @@ function searchCurrent(cityName) {
           windSpeed.textContent =
             "Wind" + " " + "Speed:" + " " + data.wind.speed + " " + "Mph";
 
-          weather-details.classList = "card";
+          weatherDetails.classList = "card";
 
           listdata.appendChild(weatherView);
-          weather-details.appendChild(listdata);
+          weather - details.appendChild(listdata);
           listdata.appendChild(temperature);
           listdata.appendChild(humidity);
           listdata.appendChild(windSpeed);
@@ -81,6 +81,44 @@ function searchCurrent(cityName) {
       alert("Error" + " " + error.statusText);
     });
 }
+
+//UV index overview with low
+function uvIndex(lat, lon) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
+  )
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          var uvBtnEL = document.createElement("uv-btn");
+          uvBtnEL.classList.add("btn");
+
+          uvBtnEL.textContent = data.value;
+
+          if (data.value < 3) {
+            uvBtnEL.classList.add("btn-low");
+          } else if (data.value < 7) {
+            uvBtnEL.classList.add("btn-moderate");
+          } else {
+            uvBtnEL.classList.add("btn-high");
+          }
+
+          var UVel = document.createElement("div");
+          UVel.innerText = "UV Index:" + " ";
+          UVel.appendChild(buttonUVEL);
+
+          listdata.appendChild(UVel);
+          weatherDetails.appendChild(listdata);
+        });
+      } else {
+        alert("UV Error" + " " + response.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert("UV Error" + error.statusText);
+    });
+}
+
 /* var cityUserInputEl = document.getElementById("city-name");
 // var searchButton = document.getElementById("button");
 // var userInput = document.getElementById("input-box");
