@@ -7,10 +7,81 @@ var fiveDayEl = document.querySelector("#five-day");
 
 var currentDay = moment().format("(L)");
 
-/*
+var data = document.createElement("div");
+var temperature = document.createElement("p");
+var humidity = document.createElement("p");
+var windSpeed = document.createElement("p");
+var uvIndex = document.createElement("p");
+
 var apiKey = "6f8f0b3c82edaa7e1356d7dd6031e484";
-var chosenCity = "hartford";
-// var cityUserInputEl = document.getElementById("city-name");
+
+var localDetails = function () {
+  list = JSON.parse(localStorage.getItem("data"));
+  if (!list) {
+    list = [];
+  }
+  ulListEl.innerHTML = " ";
+  for (var i = 0; i < list.length; i++) {
+    listcities(list[i]);
+  }
+};
+
+// weather information
+function searchCurrent(cityName) {
+  console.log("searchcurr:", cityName);
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+  )
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          if (list.indexOf(cityName) === -1) {
+            list.push(cityName);
+            localStorage.setItem("name", JSON.stringify(list));
+
+            ShowLocal();
+          }
+// current day and location name
+          var localDate = document.createElement("div");
+          var picture = document.createElement("pic");
+          var pictureLink =
+            "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+          picture.setAttribute("src", pictureLink);
+          localDate.appendChild(image);
+
+          weatherView.innerHTML = "";
+          weatherView.classList.add("currentStyle");
+          weatherView.appendChild(dateCity);
+          weather-details.innerHTML = "";
+          listdata.innerHTML = "";
+
+          searchUV(data.coord.lat, data.coord.lon);
+
+          // when searching, displays weather information.
+          temperature.textContent =
+            "Temperature:" + " " + data.main.temperature + " " + "ºF";
+          humidity.textContent =
+            "Humidity:" + " " + data.main.humidity + " " + "%";
+          windSpeed.textContent =
+            "Wind" + " " + "Speed:" + " " + data.wind.speed + " " + "Mph";
+
+          weather-details.classList = "card";
+
+          listdata.appendChild(weatherView);
+          weather-details.appendChild(listdata);
+          listdata.appendChild(temperature);
+          listdata.appendChild(humidity);
+          listdata.appendChild(windSpeed);
+        });
+      } else {
+        alert("Error" + " " + response.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert("Error" + " " + error.statusText);
+    });
+}
+/* var cityUserInputEl = document.getElementById("city-name");
 // var searchButton = document.getElementById("button");
 // var userInput = document.getElementById("input-box");
 // var frameEl = document.querySelector("#frame-wrapper");
