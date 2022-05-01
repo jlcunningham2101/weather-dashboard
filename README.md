@@ -1,36 +1,36 @@
 # weather-dashboard
 
-## Project Description:
+## Table of Contents
 
-## Purpose:
+- [Description](#description)
+- [Features](#features)
+- [User-Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Usage](#usage)
+- [Webpage-Screenshots](#webpage-screenshots)
+- [Github-Link](#github-link)
+- [Contributor](#contributor)
 
-A website that allows users to retrieve weather data for cities in the United States.
+### Project Description:
 
-## Built With:
+This applications acts as a weather dashboard that runs in the browser and features dynamically updated HTML and CSS by using the OpenWeather One Call API to retrieve weather data for cities. Searches are saved to local storage for future viewing.
+
+### Features
+
+This application includes the following features:
 
 - HTML
 - CSS
 - Javascript
 - API (from Open Weather Map)
 
-## Website:
-
-- Deployed Link:
-- GitHub repository link:
-
-## Webpage Images:
-
-## Contribution:
-
-Website created by Jillian Cunningham
-
-## User Story:
+### User Story:
 
 AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 
-## Acceptance Criteria:
+### Acceptance Criteria:
 
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
@@ -43,3 +43,21 @@ WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
+
+### Usage
+
+### Webpage Screenshots:
+
+### Github Link:
+
+- Deployed Link:
+- GitHub Repository:
+  -- https://github.com/jlcunningham2101/weather-dashboard.git
+- Github URL:
+  --https://github.com/jlcunningham2101/weather-dashboard
+
+### Contributors:
+
+Have any questions and/or concerns regarding this application? Feel free to outreach the contributor using the details below:
+
+- Jill Cunningham: https://github.com/jlcunningham2101

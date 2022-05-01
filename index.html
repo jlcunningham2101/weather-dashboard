@@ -1,17 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">2
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cunningham's Weather Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Cunningham's Weather App</title>
 </head>
 
 <body>
 
-    <script src="./assets/js/script.js"></script>
+    <header class="jumbotron">
+        <h1 class="display-3 lead">Cunningham's Weather App</h1>
+    </header>
+
+    <main class="container-fluid flex-row">
+
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <form id="city-form">
+                    <div class="form-group">
+                        <h3 for="city-search">Enter the City Below!</h3>
+                        <input id="city" type="text">
+                        <button id="search-button" type="submit" class="btn btn-primary"><span
+                                class="oi oi-cloud"></span></button>
+                        <button class="btn btn-secondary" type="button" id="clear"><span
+                                class="oi oi-x"></span></button>
+                    </div>
+                </form>
+                <div>
+                    <ul id="ul-list" class="ul-history">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-9">
+                <div id="weather-dashboard">
+                    <h2><span id="weather-view"></span></h2>
+                    <div id="weather-details"></div>
+                </div>
+                <div>
+                    <h2 id="forecast"></h2>
+                    <div id="weekly-forecast">
+                        <div id="five-day" class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/weather.js"> </script>
 </body>
 
 </html>

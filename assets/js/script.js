@@ -8,8 +8,8 @@ var chosenCity = "hartford";
 // var frameEl = document.querySelector("#frame-wrapper");
 // var cityBucketEl = document.getElementById("city-bucket");
 
-//     esearchButton.addEventListener("click", function (event) {
-// vent.preventDefault();
+//     searchButton.addEventListener("click", function (event) {
+// event.preventDefault();
 //     console.log("click");
 //     var userInput = document.getElementById("input-box").value;
 // })
