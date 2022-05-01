@@ -86,3 +86,20 @@
   #five-day {
     padding-bottom: 20px;
   }
+
+  .imgDisplay {
+    display: block ;
+    margin-left: auto; 
+    margin-right: auto
+  }
+
+  .ul-history-item {
+    border: 1px solid rgba(0,0,0,.125);
+    border-width: 2px;
+    border-color: rgba(27, 29, 150, 0.993);
+    
+  }
+
+  #erase.btn {
+    background-color:red
+  }
