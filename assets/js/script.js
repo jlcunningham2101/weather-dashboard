@@ -1,4 +1,4 @@
-//API key: 6f8f0b3c82edaa7e1356d7dd6031e484//
+/*API key: 6f8f0b3c82edaa7e1356d7dd6031e484//
 
 var apiKey = "6f8f0b3c82edaa7e1356d7dd6031e484";
 var chosenCity = "hartford";
@@ -62,3 +62,4 @@ var fiveDayForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q="
        // })
    // }
 //})
+*/
