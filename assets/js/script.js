@@ -26,20 +26,19 @@ var localDetails = function () {
   }
 };
 
-// weather information
-function searchCurrent(cityName) {
-  console.log("searchcurr:", cityName);
+function searchCurrent(city) {
+  console.log("searchcurr:", city);
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
   )
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          if (list.indexOf(cityName) === -1) {
-            list.push(cityName);
+          if (list.indexOf(city) === -1) {
+            list.push(city);
             localStorage.setItem("name", JSON.stringify(list));
 
-            ShowLocal();
+            localDetails();
           }
           // current day and location name
           var localDate = document.createElement("div");
@@ -53,13 +52,12 @@ function searchCurrent(cityName) {
           weatherView.classList.add("currentStyle");
           weatherView.appendChild(dateCity);
           weatherDetails.innerHTML = "";
-          listdata.innerHTML = "";
+          data.innerHTML = "";
 
           searchUV(data.coord.lat, data.coord.lon);
 
-          //display temperature, humidity, wind speed,
           temperature.textContent =
-            "Temperature:" + " " + data.main.temperature + " " + "ºF";
+            "Temperature:" + " " + data.main.temperature + " ";
           humidity.textContent =
             "Humidity:" + " " + data.main.humidity + " " + "%";
           windSpeed.textContent =
@@ -67,11 +65,11 @@ function searchCurrent(cityName) {
 
           weatherDetails.classList = "card";
 
-          listdata.appendChild(weatherView);
-          weather - details.appendChild(listdata);
-          listdata.appendChild(temperature);
-          listdata.appendChild(humidity);
-          listdata.appendChild(windSpeed);
+          data.appendChild(weatherView);
+          weather - details.appendChild(data);
+          data.appendChild(temperature);
+          data.appendChild(humidity);
+          data.appendChild(windSpeed);
         });
       } else {
         alert("Error" + " " + response.statusText);
@@ -83,7 +81,7 @@ function searchCurrent(cityName) {
 }
 
 //UV index overview with low, moderate, and high indicators
-function uvIndex(lat, lon) {
+function searchUV(lat, lon) {
   fetch(
     `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
   )
@@ -105,10 +103,10 @@ function uvIndex(lat, lon) {
 
           var UVel = document.createElement("div");
           UVel.innerText = "UV Index:" + " ";
-          UVel.appendChild(buttonUVEL);
+          UVel.appendChild(uvBtnEL);
 
-          listdata.appendChild(UVel);
-          weatherDetails.appendChild(listdata);
+          data.appendChild(UVel);
+          weatherDetails.appendChild(data);
         });
       } else {
         alert("UV Error" + " " + response.statusText);
@@ -135,7 +133,6 @@ function search5Day(city) {
           forecastEl.appendChild(titleforecast);
 
           for (var i = 6; i < 39; i += 8) {
-            // where your five day forcast comes from
             var div = document.createElement("div");
             var firstDT = document.createElement("p");
             var firstDH = document.createElement("p");
@@ -212,3 +209,5 @@ $("#erase").click(function () {
   location.reload();
   return false;
 });
+
+localDetails();

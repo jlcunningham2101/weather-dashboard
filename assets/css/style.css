@@ -16,7 +16,7 @@
   .lead,#City,form h3,#forecast,.currentStyle {
     color: rgb(234, 250, 8); 
  }
-
+ 
  .justify-space-around {
     justify-content: space-between;
   }
@@ -102,4 +102,9 @@
 
   #erase.btn {
     background-color:red
+  }
+
+  footer {
+    background-color: purple;
+    color: yellow;
   }
